@@ -1,0 +1,40 @@
+(1) Выберите любую предметную область (кроме интернет-магазина) и опишите типовые бизнес-процессы (5-7 шт.) и их соответствие операциям по CRUD.
+
+ContactBook
+
+- Создание нового контакта  (Create)
+- Изменение данных контакта  (Update)
+- Удалениие контакта  (Delete)
+- Удалениие данных контакта  (Delete)
+- Просмотр списка всех контактов  (Read)
+- Просмотр данных контакта  (Read)
+- Совершить звонок контакту  (Create)
+- Просмотр звонков  (Read)
+- Очистить спиок звонков  (Delete)
+- Сохранить входящий номер в имеющийся контакт  (Update)
+
+
+(2) Вывести все товары в диапазоне цены от 10 до 100, отсортированные по названию.
+SELECT * 
+FROM Products
+WHERE Price between 10 and 100
+ORDER BY ProductName
+
+(3) Для клиентов не из Германии и не из Франции очистить адрес.
+UPDATE Customers
+SET Address = null
+WHERE Country not in ('Germany', 'France')
+
+(4) Удалить (безвозвратно) клиентов из 'USA'.
+DELETE FROM Customers
+WHERE Country = 'USA'
+
+(5) Вывести всех поставщиков (suppliers) из Токио, Япония, отсортированные по имени.
+SELECT * FROM Suppliers
+WHERE City is 'Tokyo'
+ORDER BY ContactName
+
+(6) Вывести товары из категорий 1 и 5 с ценой до 20 EURO с сортировкой по возрастанию цены. 
+SELECT * FROM Products
+WHERE CategoryID in (1, 5) and Price <= 20
+ORDER BY Price
