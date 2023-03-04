@@ -1,0 +1,7 @@
+self-practice 
+Проведена самостоятельная работа с:
+Devtools tab: Elements, Network
+Elements for search elements 
+Network for API, use filter (Fetch/XHR)
+на сайте:
+http://phonebook.telran-edu.de:8080/user/login
