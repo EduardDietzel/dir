@@ -1,0 +1,37 @@
+-- вывести три строки для ShipperId 1, 2, 3 и колонку "Дата первого заказа", где будет самое раннее значение из всех дат для этого перевозчика (песочница).
+
+SELECT ShipperID, min(OrderDate) as "Дата первого заказа" FROM [Orders] group by ShipperID
+
+-- (лимиты и оффсеты пишутся всегда  конце запроса)
+
+
+-- вывести строки со всеми уникальными CustomerID. В строке должны быть 2 колонки - CustomerID и "Дата последнего заказа"
+
+SELECT CustomerID, max(OrderDate) as "Дата последнего заказа" FROM [Orders] group by OrderDate
+
+
+SELECT count(OrderID) as "Число заказов" FROM [Orders] where ShipperID is 3
+
+-- вывести все уникальные пары CustomerID EmployeeID и сказать, сколько раз каждая из этих пар оформила заказ
+
+SELECT CustomerID, EmployeeID, count(OrderID) as "Sus" FROM [Orders] group by CustomerID, EmployeeID Order by Sus
+
+SELECT ProductID, count(OrderDetailID), sum(Quantity) FROM [OrderDetails] group by ProductID;
+
+-- вносим новые данные в таблицу
+
+insert into Shippers(Phone, ShipperName) values("22222222", "Pony Express")
+
+
+-- создаем новый стол:
+
+CREATE TABLE books (
+	book_name varchar(255),
+    	author varchar(63),
+    	pages_count integer,
+    	color varchar(63)
+)
+-- varchar - это строка (текст), 255 - это масимальное число символов в тексте.
+
+INSERT into books(book_name, author, pages_count, color) values("Мёртвые души", "Гоголь", 257, "чёрный")
+
