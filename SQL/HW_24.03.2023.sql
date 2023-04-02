@@ -1,6 +1,6 @@
 use platform;
 
--- Вывести пользователей, у которых не укан email-адрес
+-- Вывести пользователей, у которых не указан email-адрес
 select * from users
 where email is null;
 
