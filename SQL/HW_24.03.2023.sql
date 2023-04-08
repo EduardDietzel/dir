@@ -1,28 +1,31 @@
 use platform;
 
--- Вывести пользователей, у которых не указан email-адрес
+/*(1) Вывести пользователей, у которых не указан email-адрес,
+причем поле имейла может быть пустым, либо не заданным */
 select * from users
-where email is null;
+where email is null or email = '';
 
--- Вывести незаблокированных пользователей из Китая
+-- (2) Вывести незаблокированных пользователей из Китая
 select * from users
 where country = 'China' and
 is_blocked = false;
 
--- Вывести стримы, авторы которых заблокированы
+-- (3) Вывести стримы, авторы которых заблокированы
 select *
 from streams
 join users on streams.user_id=users.user_id
 where is_blocked = true;
 
--- Вывести три последних реакции (включая имя_пользователя)
-select *
+-- (4) Вывести три последних реакции (включая имя_пользователя)
+select
+reactions.value, users.fullname, reactions.created_at
 from reactions
 join users on reactions.user_id=users.user_id
 join streams on reactions.stream_id=streams.stream_id
+order by reactions.created_at desc
 limit 3;
 
--- Вывести пожертвования заблокированных пользователей
+-- (5) Вывести пожертвования заблокированных пользователей
 select * from donations
 join users on donations.donator_id=users.user_id
 where is_blocked = true;

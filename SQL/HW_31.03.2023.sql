@@ -23,4 +23,5 @@ select
     donations.amount as amount_eur	
 from donations
 join streams on donations.stream_id=streams.stream_id
+order by donations.created_at DESC
 limit 1;
