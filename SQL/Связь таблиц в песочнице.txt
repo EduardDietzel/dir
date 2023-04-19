@@ -1,0 +1,15 @@
+
+Customers.CustomerID (1:M) Orders.OrderID
+
+Shippers.ShipperID (1:M) Orders.OrderID
+
+Employees.EmployeeID (1:M) Orders.OrderID
+
+Categories.CategoryID(1:M) Products.ProductID
+
+Suppliers.SupplierID (1:M) Products.ProductID
+
+Orders.OrderID (1:M) Products.ProductID
+
+Orders.OrderID (1:M) OrderDetails.OrderDetailID
+

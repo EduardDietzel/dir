@@ -8,16 +8,16 @@ Price between 5 and 25;
 
 -- (2) добавьте произвольный товар в таблицу Products
 
-INSERT into Products(ProductName, SupplierID, CategoryID, Unit, Price) values('Kakaomasse', 1, 2, '5 boxes * 10 bags', 50)
+INSERT into Products(ProductName, SupplierID, CategoryID, Unit, Price) values('Milk', 1, 2, '5 boxes * 10 bags', 50)
 
 
 -- (3) у клиента с ID 1 измените адрес на произвольный
 
 UPDATE Customers
-SET Address = 'Gandly str. 6',
-City = 'Attinghausen',
-PostalCode = 8834,
-Country = 'Switzerland'
+SET Address = 'Hauptstr. 10',
+City = 'Berlin',
+PostalCode = 98834,
+Country = 'Deutschland'
 WHERE CustomerID = 1
 
 
@@ -41,3 +41,11 @@ SET Phone = ''
 
 DELETE FROM Suppliers
 WHERE Country is not 'USA'
+
+-- (7) вывести ко-во и среднюю стоимость товаров из второй категории
+
+SELECT 
+count(*),
+AVG(Price)
+FROM Products
+WHERE CategoryID = 2
