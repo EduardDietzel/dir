@@ -52,9 +52,9 @@ create table if not exists reactions(
 
 insert into reactions (user_id, stream_id, value)
 values
-	(1, 1, 5),
-    (2, 2, 4),
-	(3, 3, 3);
+	(4, 4, 2),
+    (5, 5, 1),
+	(6, 6, 3);
 -- можно менять юзеров и стримы для установки оценки
 
 select * from reactions;
@@ -62,8 +62,8 @@ select * from reactions;
 create table if not exists donations(
 	donation_id integer primary key auto_increment,
     created_at datetime default current_timestamp,
-	donator_id integer,    
-    stream_id integer,    
+	donator_id integer,
+    stream_id integer,
     amount decimal(10, 2) check(amount > 0),
     FOREIGN KEY (donator_id) REFERENCES users(user_id),
     FOREIGN KEY (stream_id) REFERENCES streams(stream_id)
