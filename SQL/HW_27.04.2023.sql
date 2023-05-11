@@ -4,8 +4,8 @@ select
 	users.country as country,
 	sum(donations.amount) as total_donations
 from donations
-left join streams on donations.stream_id=streams.stream_id -- подтягиваем таблицу стримов к донатам
-left join users on streams.user_id = users.user_id -- подтягиваем данные по автору стрима
+left join streams on donations.stream_id=streams.stream_id
+left join users on streams.user_id = users.user_id
 group by users.country
 order by total_donations desc
 limit 2;
@@ -14,7 +14,7 @@ limit 2;
 select
 	streams.title as streams_title,
 	AVG(reactions.value) as rating,
-    is_completed
+    	is_completed
 from streams
 left join reactions on reactions.stream_id=streams.stream_id
 where is_completed = false
@@ -42,7 +42,7 @@ having rating < 2;
 
 -- (5) Вывести имена пользователей и сколько оценок за все время они поставили
 select
-fullname as User_name,
+	fullname as User_name,
 count(value) as count_value
 from users
 left join reactions on  reactions.user_id=users.user_id
